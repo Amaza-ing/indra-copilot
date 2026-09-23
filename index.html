@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página sencilla</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <p class="eyebrow">Bienvenido</p>
+        <h1>Mi primera página web</h1>
+        <p class="description">
+          Esta es una página sencilla creada con HTML, CSS y JavaScript.
+        </p>
+
+        <button id="saludoBtn">Haz clic</button>
+        <p id="mensaje" class="message">Pulsa el botón para cambiar este texto.</p>
+
+        <div class="clock-box">
+          <span class="label">Hora actual</span>
+          <strong id="hora">--:--:--</strong>
+        </div>
+      </section>
+    </main>
+
+    <div class="analog-clock-wrapper" aria-label="Reloj analógico">
+      <div class="analog-clock">
+        <div class="clock-face">
+          <span class="tick tick-1"></span>
+          <span class="tick tick-2"></span>
+          <span class="tick tick-3"></span>
+          <span class="tick tick-4"></span>
+          <span class="tick tick-5"></span>
+          <span class="tick tick-6"></span>
+          <span class="tick tick-7"></span>
+          <span class="tick tick-8"></span>
+          <span class="tick tick-9"></span>
+          <span class="tick tick-10"></span>
+          <span class="tick tick-11"></span>
+          <span class="tick tick-12"></span>
+
+          <div class="hand hour"></div>
+          <div class="hand minute"></div>
+          <div class="hand second"></div>
+          <div class="center-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

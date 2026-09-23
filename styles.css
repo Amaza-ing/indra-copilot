@@ -1,0 +1,184 @@
+:root {
+  --bg-start: #f6d365;
+  --bg-end: #fda085;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text: #1f2937;
+  --primary: #7c3aed;
+  --primary-dark: #5b21b6;
+  --shadow: rgba(124, 58, 237, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
+  position: relative;
+}
+
+.container {
+  width: min(90%, 480px);
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px var(--shadow);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--primary-dark);
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.description {
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+}
+
+button {
+  border: none;
+  background: var(--primary);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.message {
+  min-height: 24px;
+  margin: 1rem 0 1.5rem;
+  font-weight: 600;
+}
+
+.clock-box {
+  background: #eef2ff;
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.8rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+#hora {
+  font-size: 1.5rem;
+}
+
+.analog-clock-wrapper {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10;
+}
+
+.analog-clock {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+  border: 2px solid rgba(91, 33, 182, 0.15);
+  padding: 8px;
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+}
+
+.tick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 8px;
+  margin-left: -1px;
+  background: rgba(31, 41, 55, 0.7);
+  border-radius: 99px;
+  transform-origin: center center;
+}
+
+.tick-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-44px); }
+.tick-2 { transform: translate(-50%, -50%) rotate(30deg) translateY(-44px); }
+.tick-3 { transform: translate(-50%, -50%) rotate(60deg) translateY(-44px); }
+.tick-4 { transform: translate(-50%, -50%) rotate(90deg) translateY(-44px); }
+.tick-5 { transform: translate(-50%, -50%) rotate(120deg) translateY(-44px); }
+.tick-6 { transform: translate(-50%, -50%) rotate(150deg) translateY(-44px); }
+.tick-7 { transform: translate(-50%, -50%) rotate(180deg) translateY(-44px); }
+.tick-8 { transform: translate(-50%, -50%) rotate(210deg) translateY(-44px); }
+.tick-9 { transform: translate(-50%, -50%) rotate(240deg) translateY(-44px); }
+.tick-10 { transform: translate(-50%, -50%) rotate(270deg) translateY(-44px); }
+.tick-11 { transform: translate(-50%, -50%) rotate(300deg) translateY(-44px); }
+.tick-12 { transform: translate(-50%, -50%) rotate(330deg) translateY(-44px); }
+
+.hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: center bottom;
+  border-radius: 999px;
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.hour {
+  width: 4px;
+  height: 28%;
+  background: #1f2937;
+}
+
+.minute {
+  width: 3px;
+  height: 36%;
+  background: #374151;
+}
+
+.second {
+  width: 2px;
+  height: 42%;
+  background: #ef4444;
+}
+
+.center-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: #7c3aed;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
