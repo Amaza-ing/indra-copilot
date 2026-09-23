@@ -9,7 +9,6 @@ boton.addEventListener('click', () => {
   mensaje.textContent = '¡Hola! Esta página funciona con JavaScript.';
 });
 
-// Documenta la función actualizarHora para mostrar la hora actual y mover las manecillas del reloj
 function actualizarHora() {
   const ahora = new Date();
   const hora = ahora.toLocaleTimeString('es-ES');
