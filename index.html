@@ -15,12 +15,14 @@
           Esta es una página sencilla creada con HTML, CSS y JavaScript.
         </p>
 
-        <button id="saludoBtn">Haz clic</button>
-        <p id="mensaje" class="message">Pulsa el botón para cambiar este texto.</p>
+        <button id="greetingButton" type="button">Haz clic</button>
+        <p id="message" class="message" aria-live="polite">
+          Pulsa el botón para cambiar este texto.
+        </p>
 
         <div class="clock-box">
           <span class="label">Hora actual</span>
-          <strong id="hora">--:--:--</strong>
+          <strong id="time">--:--:--</strong>
         </div>
       </section>
     </main>
