@@ -1,17 +1,27 @@
-const greetingButton = document.getElementById('greetingButton');
-const message = document.getElementById('message');
-const timeElement = document.getElementById('time');
-const hourHand = document.querySelector('.hand.hour');
-const minuteHand = document.querySelector('.hand.minute');
-const secondHand = document.querySelector('.hand.second');
-const themeButtons = document.querySelectorAll('.theme-option');
-
 const initialMessage = 'Pulsa el botón para cambiar este texto.';
 const greetingMessage = '¡Hola! Esta página funciona con JavaScript.';
 const themeStorageKey = 'themePreference';
 const themeOptions = ['aurora', 'ocean', 'sunset', 'forest', 'midnight'];
 
+function getMessageElement() {
+  return document.getElementById('message');
+}
+
+function getTimeElement() {
+  return document.getElementById('time');
+}
+
+function getThemeButtons() {
+  return document.querySelectorAll('.theme-option');
+}
+
 function updateMessage(text) {
+  const message = getMessageElement();
+
+  if (!message) {
+    return;
+  }
+
   message.textContent = text;
 }
 
@@ -24,6 +34,15 @@ function setHandRotation(handElement, degrees) {
 }
 
 function updateTime() {
+  const timeElement = getTimeElement();
+  const hourHand = document.querySelector('.hand.hour');
+  const minuteHand = document.querySelector('.hand.minute');
+  const secondHand = document.querySelector('.hand.second');
+
+  if (!timeElement) {
+    return;
+  }
+
   const now = new Date();
   const currentTime = now.toLocaleTimeString('es-ES');
   timeElement.textContent = currentTime;
@@ -39,8 +58,11 @@ function updateTime() {
 
 function applyTheme(themeName) {
   const safeTheme = themeOptions.includes(themeName) ? themeName : 'aurora';
+  const themeButtons = getThemeButtons();
 
-  document.body.dataset.theme = safeTheme;
+  if (document.body) {
+    document.body.dataset.theme = safeTheme;
+  }
 
   themeButtons.forEach((button) => {
     const isActive = button.dataset.theme === safeTheme;
@@ -56,6 +78,12 @@ function applyTheme(themeName) {
 }
 
 function initializeThemes() {
+  const themeButtons = getThemeButtons();
+
+  if (themeButtons.length === 0) {
+    return;
+  }
+
   let selectedTheme = 'aurora';
 
   try {
@@ -77,6 +105,12 @@ function initializeThemes() {
 }
 
 function initializeApp() {
+  const greetingButton = document.getElementById('greetingButton');
+
+  if (!greetingButton) {
+    return;
+  }
+
   greetingButton.addEventListener('click', () => {
     updateMessage(greetingMessage);
   });
@@ -87,4 +121,8 @@ function initializeApp() {
   setInterval(updateTime, 1000);
 }
 
-initializeApp();
+if (typeof document !== 'undefined') {
+  initializeApp();
+}
+
+export { applyTheme, initializeApp, initializeThemes, setHandRotation, updateMessage, updateTime };
