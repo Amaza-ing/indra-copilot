@@ -25,4 +25,9 @@ jobs:
         run: npm ci
 
       - name: Ejecutar tests
-        run: npm test
+        shell: bash
+        run: |
+          npm test -- --run || {
+            echo "ERROR: Los tests han fallado. El push no puede completarse."
+            exit 1
+          }
