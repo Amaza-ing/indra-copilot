@@ -3,16 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página sencilla</title>
+    <title>Mi sitio con temas</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-theme="aurora">
+    <header class="topbar" aria-label="Cabecera principal">
+      <div class="brand" aria-label="Marca del sitio">
+        <span class="brand-mark">M</span>
+        <span class="brand-name">Mi sitio</span>
+      </div>
+
+      <nav class="theme-picker" role="radiogroup" aria-label="Cambiar tema visual">
+        <button class="theme-option is-active" type="button" data-theme="aurora" aria-label="Tema aurora" aria-pressed="true" title="Aurora">
+          <span class="swatch swatch-aurora"></span>
+        </button>
+        <button class="theme-option" type="button" data-theme="ocean" aria-label="Tema océano" aria-pressed="false" title="Océano">
+          <span class="swatch swatch-ocean"></span>
+        </button>
+        <button class="theme-option" type="button" data-theme="sunset" aria-label="Tema atardecer" aria-pressed="false" title="Atardecer">
+          <span class="swatch swatch-sunset"></span>
+        </button>
+        <button class="theme-option" type="button" data-theme="forest" aria-label="Tema bosque" aria-pressed="false" title="Bosque">
+          <span class="swatch swatch-forest"></span>
+        </button>
+        <button class="theme-option" type="button" data-theme="midnight" aria-label="Tema medianoche" aria-pressed="false" title="Medianoche">
+          <span class="swatch swatch-midnight"></span>
+        </button>
+      </nav>
+    </header>
+
     <main class="container">
-      <section class="card">
+      <section class="card" aria-labelledby="page-title">
         <p class="eyebrow">Bienvenido</p>
-        <h1>Mi primera página web</h1>
+        <h1 id="page-title">Mi primera página web</h1>
         <p class="description">
-          Esta es una página sencilla creada con HTML, CSS y JavaScript.
+          Una pequeña vista con estilo, reloj y cinco temas visuales diferentes.
         </p>
 
         <button id="greetingButton" type="button">Haz clic</button>
@@ -27,7 +52,7 @@
       </section>
     </main>
 
-    <div class="analog-clock-wrapper" aria-label="Reloj analógico">
+    <aside class="analog-clock-wrapper" aria-label="Reloj analógico">
       <div class="analog-clock">
         <div class="clock-face">
           <span class="tick tick-1"></span>
@@ -49,7 +74,7 @@
           <div class="center-dot"></div>
         </div>
       </div>
-    </div>
+    </aside>
 
     <script src="script.js"></script>
   </body>
